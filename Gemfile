@@ -34,6 +34,8 @@ gem 'gon'
 
 gem 'devise'
 
+gem 'unicorn'
+
 gem 'cancan'
 
 gem 'rolify'
