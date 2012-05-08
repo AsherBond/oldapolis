@@ -11,3 +11,11 @@ development:
   username: cody
   password: qwedsa
 
+production:
+  adapter: postgresql
+  database: mozapolis_development
+  pool: 5
+  timeout: 5000
+  username: cody
+  password: qwedsa
+
