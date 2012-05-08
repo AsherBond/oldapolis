@@ -211,7 +211,13 @@ class User < ActiveRecord::Base
 	                  :url  => "/system/users/body_background/:id/:style/:basename.:extension",
 	                  :path => ":rails_root/public/system/users/body_background/:id/:style/:basename.:extension"
         
-        
+	def update_with_password(params={}) 
+	  if params[:password].blank? 
+	    params.delete(:password) 
+	    params.delete(:password_confirmation) if params[:password_confirmation].blank? 
+	  end 
+	  update_attributes(params) 
+	end      
   private
   	def define_role 
   		self.add_role :fan

@@ -24,7 +24,7 @@ Mozapolis::Application.routes.draw do
   match '/album-dashboard'    => 'users#albumdashboard',   as: 'album_dashboard'
   match '/events-dashboard'    => 'users#eventsdashboard',   as: 'events_dashboard'
 
-
+  match '/settings' => 'settings#edit'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
