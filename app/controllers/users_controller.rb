@@ -33,6 +33,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @albums = @user.albums
+    @photos = @user.photos
+    @events = @user.events
     render :layout => 'artist-profile'
   end
 

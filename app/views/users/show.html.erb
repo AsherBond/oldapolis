@@ -120,10 +120,12 @@
                 </tr>
               </thead>
               <tbody>
+                <% @events.each do |event| %>
                 <tr>
-                  <td>March 29</th>
-                  <td><a href="#">The Venue</a> <br /><small>Playing with Counterparts, New Found Glory...</small> </th>
+                  <td><%= event.start.to_formatted_s(:short) %></th>
+                  <td><%= link_to event.title, event %></th>
                 </tr>
+                <% end %>
               </tbody>
             </table>
           </div>
@@ -136,61 +138,12 @@
           <div class="span8">
             <h3 class="hb">Photos</h3>
               <ul class="thumbnails">
+                <% @photos.each do |photo| %>
                 <li class="span2">
-                  <a href="#" class="thumbnail">
-                    <img src="http://placehold.it/600x600" alt="">
-                  </a>
+                  <%= link_to image_tag(photo.image.url(:medium)), photo_path(photo), :class => "thumbnail" %>
                 </li>
-                <li class="span2">
-                  <a href="#" class="thumbnail">
-                    <img src="http://placehold.it/600x600" alt="">
-                  </a>
-                </li>
-                <li class="span2">
-                  <a href="#" class="thumbnail">
-                    <img src="http://placehold.it/600x600" alt="">
-                  </a>
-                </li>
-                <li class="span2">
-                  <a href="#" class="thumbnail">
-                    <img src="http://placehold.it/600x600" alt="">
-                  </a>
-                </li>
-                <li class="span2">
-                  <a href="#" class="thumbnail">
-                    <img src="http://placehold.it/600x600" alt="">
-                  </a>
-                </li>
-                <li class="span2">
-                  <a href="#" class="thumbnail">
-                    <img src="http://placehold.it/600x600" alt="">
-                  </a>
-                </li>
-                <li class="span2">
-                  <a href="#" class="thumbnail">
-                    <img src="http://placehold.it/600x600" alt="">
-                  </a>
-                </li>
-                <li class="span2">
-                  <a href="#" class="thumbnail">
-                    <img src="http://placehold.it/600x600" alt="">
-                  </a>
-                </li>
-                <li class="span2">
-                  <a href="#" class="thumbnail">
-                    <img src="http://placehold.it/600x600" alt="">
-                  </a>
-                </li>
-                <li class="span2">
-                  <a href="#" class="thumbnail">
-                    <img src="http://placehold.it/600x600" alt="">
-                  </a>
-                </li>
-                <li class="span2">
-                  <a href="#" class="thumbnail">
-                    <img src="http://placehold.it/600x600" alt="">
-                  </a>
-                </li>
+                <% end %>
+
               </ul>
           </div>
         </div>
@@ -236,28 +189,23 @@
   <div class="span4">
       <ul class="thumbnails">
         <li class="span4">
-          <a id="profile-image" href="#" class="thumbnail">
-            <img src="/assets/profile_pic.jpg" alt="">
-          </a>
+
+          <%= link_to image_tag(@user.profile_image.url(:medium)), user_photos_path(@user), :class => "thumbnail", :id => "profile-image" %>
         </li>
       </ul>
 
       <h3 class="h-border">Albums</h3>
       <ul id="album-box" class="thumbnails">
+        <% @albums.each do |album| %>
         <li class="span2">
           <div class="thumbnail profile-album">
-            <img src="/assets/album1.jpg" alt="">
-            <h5><a href="#">Under Soil and Dirt</a></h5>
-            <p>20011</p>
+            <%= image_tag album.artwork.url(:medium) %>
+            <h5><%= link_to album.title, album %></h5>
+            <p><%= album.year %></p>
           </div>
         </li>
-        <li class="span2">
-          <div class="thumbnail profile-album">
-            <img src="/assets/album2.jpg" alt="">
-            <h5><a href="#">Split w/ Maker</a></h5>
-            <p>2009</p>
-          </div>
-        </li>
+        <% end %>
+
 
       </ul>
 
@@ -270,14 +218,12 @@
           </tr>
         </thead>
         <tbody>
+          <% @events.each do |event| %>
           <tr>
-            <td>March 29</th>
-            <td><a href="#">The Venue</a> <br /><small>Playing with Counterparts, New Found Glory...</small> </th>
+            <td><%= event.start.to_formatted_s(:short) %></th>
+            <td><%= link_to event.title, event %></th>
           </tr>
-          <tr>
-            <td>March 29</th>
-            <td><a href="#">The Venue</a> <br /><small>Playing with Counterparts, New Found Glory...</small> </th>
-          </tr>
+          <% end %>
         </tbody>
       </table>
 

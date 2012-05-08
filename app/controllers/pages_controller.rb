@@ -9,6 +9,8 @@ class PagesController < ApplicationController
   end
 
   def music
+  	@artists = User.order("created_at desc").limit(4)
+  	@albums = Album.order("created_at desc").limit(4)
   	gon.users = User.all.map &:artist_name
     render :layout => 'search'
   end
