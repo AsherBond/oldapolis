@@ -1,0 +1,59 @@
+class AddFieldsToUser < ActiveRecord::Migration
+  def change
+    add_column :users, :first_name, :string
+    add_column :users, :last_name, :string
+    add_column :users, :username, :string
+    add_column :users, :city, :string
+    add_column :users, :state, :string
+    add_column :users, :zip, :string
+    add_column :users, :about, :text
+    add_column :users, :slug, :string
+    add_index :users, :slug, unique: true
+    add_column :users, :main_box_h1, :string
+    add_column :users, :main_box_h3, :string
+    add_column :users, :main_box_p, :string
+    add_column :users, :player_link_color, :string
+    add_column :users, :player_link_color_hover, :string
+    add_column :users, :player_link_color_current, :string
+    add_column :users, :nav_link_color, :string
+    add_column :users, :nav_link_color_hover, :string
+    add_column :users, :nav_link_color_current, :string
+    add_column :users, :news_h3, :string
+    add_column :users, :news_link_color, :string
+    add_column :users, :news_link_color_hover, :string
+    add_column :users, :news_p, :string
+    add_column :users, :about_h3, :string
+    add_column :users, :about_link_color, :string
+    add_column :users, :about_link_color_hover, :string
+    add_column :users, :microposts_h3_color, :string
+    add_column :users, :microposts_color, :string
+    add_column :users, :microposts_date_color, :string
+    add_column :users, :comments_h3_color, :string
+    add_column :users, :comments_color, :string
+    add_column :users, :comments_link_color, :string
+    add_column :users, :comments_link_color_hover, :string
+    add_column :users, :comments_user_link_color, :string
+    add_column :users, :comments_user_link_color_hover, :string
+    add_column :users, :albums_h3_color, :string
+    add_column :users, :albums_link_color, :string
+    add_column :users, :albums_link_color_hover, :string
+    add_column :users, :albums_date_color, :string
+    add_column :users, :events_h3_color, :string
+    add_column :users, :events_header_color, :string
+    add_column :users, :events_text_color, :string
+    add_column :users, :events_link_color, :string
+    add_column :users, :events_link_color_hover, :string
+    add_column :users, :main_box_bg_color, :string
+    add_column :users, :player_bg_color, :string
+    add_column :users, :player_header_bg_color, :string
+    add_column :users, :about_bg_color, :string
+    add_column :users, :comments_bg_color, :string
+    add_column :users, :profile_image_bg_color, :string
+    add_column :users, :albums_bg_color, :string
+    add_column :users, :events_header_bg_color, :string
+    add_column :users, :events_body_bg_color, :string
+    add_column :users, :events_bg_color_hover, :string
+    add_column :users, :news_background_color, :string
+    add_column :users, :body_background_color, :string
+  end
+end

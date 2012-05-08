@@ -1,0 +1,24 @@
+<%= provide(:title, 'New Album') %>
+<div class="row">
+	<div class="span6 offset3">
+		<div class="well">
+			<h2 class="hb">New Album</h2>
+
+			<%= simple_form_for [@user, @album], :html => {:class => 'form-vertical' } do |f| %>
+			  <%= devise_error_messages! %>
+
+			  <%= f.input :title, :hint => "The title of the album." %>
+			  <%= f.input :artwork, :hint => "5MB limit | JPEG/PNG only." %>
+			  <%= f.input :label, :hint => "If none, please select unsigned." %>
+			  <%= f.input :year, :hint => "The year the song was produced." %>
+
+
+			  <div class="form-actions">
+			  	<%= f.submit "Submit", :class => "btn btn-primary" %>
+			  	<%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
+			  </div>
+			<% end %>
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= full_title(yield(:title)) %></title>
+
+    <%= render 'layouts/meta' %>
+    <%= render 'layouts/shim' %>
+    <%= render 'layouts/stylesheets' %>
+    <%= render 'layouts/favicons' %>
+    <style type="text/css">
+      <%= create_artist_css("body { background-color:#", @user.body_background_color) %>
+
+      <%= create_artist_css("#main-box h1 { color:#", @user.main_box_h1) %>
+      <%= create_artist_css("#main-box h3 { color:#", @user.main_box_h3) %>
+      <%= create_artist_css("#main-box p { color:#", @user.main_box_p) %>
+
+      <%= create_artist_css("#profile-image { background-color:#", @user.profile_image_bg_color) %>
+      <%= create_artist_css(".profile-album { background-color:#", @user.albums_bg_color) %>
+
+      <%= create_artist_css(".profile-album { background-color:#", @user.albums_bg_color) %>
+
+      <%= create_artist_css("#main-box.well { background-color:#", @user.main_box_bg_color) %>
+
+      <%= create_artist_css("div.jp-type-playlist div.jp-playlist a  { color:#", @user.player_link_color) %>
+      <%= create_artist_css("div.jp-type-playlist div.jp-playlist a:hover  { color:#", @user.player_link_color_hover) %>
+      <%= create_artist_css("div.jp-type-playlist div.jp-playlist a.jp-playlist-current { color:#", @user.player_link_color_current) %>
+      <%= create_artist_css("div.jp-interface { background:#", @user.player_header_bg_color) %>
+      <%= create_artist_css("div.jp-title, div.jp-playlist { background:#", @user.player_bg_color) %>
+
+      <%= create_artist_css("#nav-box li a { color:#", @user.nav_link_color) %>
+      <%= create_artist_css("#nav-box li a:hover { color:#", @user.nav_link_color_hover) %>
+      <%= create_artist_css("#nav-box li.active { color:#", @user.nav_link_color_current) %>
+
+      <%= create_artist_css("#news-box h3 { color:#", @user.news_h3) %>
+      <%= create_artist_css("#news-box p { color:#", @user.news_p) %>
+      <%= create_artist_css("#news-box a { color:#", @user.news_link_color) %>
+      <%= create_artist_css("#news-box a:hover { color:#", @user.news_link_color_hover) %>
+      <%= create_artist_css("#news-box .well { background-color:#", @user.news_background_color) %>
+
+      <%= create_artist_css("#about-box h3 { color:#", @user.about_h3) %>
+      <%= create_artist_css("#about-box a { color:#", @user.about_link_color) %>
+      <%= create_artist_css("#about-box a:hover { color:#", @user.about_link_color_hover) %>
+      <%= create_artist_css("#about-box .well { background-color:#", @user.about_bg_color) %>
+
+      <%= create_artist_css("#album-box h3 { color:#", @user.albums_h3_color) %>
+      <%= create_artist_css("#album-box p { color:#", @user.albums_date_color) %>
+      <%= create_artist_css("#album-box a { color:#", @user.albums_link_color) %>
+      <%= create_artist_css("#album-box a:hover { color:#", @user.albums_link_color_hover) %>
+
+      <%= create_artist_css("#event-box h3 { color:#", @user.events_h3_color) %>
+      <%= create_artist_css("#event-box a { color:#", @user.events_link_color) %>
+      <%= create_artist_css("#event-box a:hover { color:#", @user.events_link_color_hover) %>
+      <%= create_artist_css("table#event-box tbody tr { background-color:#", @user.events_body_bg_color) %>
+      <%= create_artist_css("table#event-box tbody tr { color:#", @user.events_text_color) %>
+      <%= create_artist_css("table#event-box tbody tr:hover td { background-color:#", @user.events_bg_color_hover) %>
+      <%= create_artist_css("table#event-box thead tr { background-color:#", @user.events_header_bg_color) %>
+      <%= create_artist_css("table#event-box thead tr { color:#", @user.events_header_color) %>
+      <%= create_artist_css("table#event-box, table#event-box th, table#event-box td { border-color:#", @user.events_header_color) %>
+
+      <%= create_artist_css("#micropost-box h3 { color:#", @user.microposts_h3_color) %>
+      <%= create_artist_css("#micropost-box p { color:#", @user.microposts_color) %>
+      <%= create_artist_css("#micropost-box small { color:#", @user.microposts_date_color) %>
+
+      <%= create_artist_css("#comment-box h3 { color:#", @user.comments_h3_color) %>
+      <%= create_artist_css("#comment-box p { color:#", @user.comments_color) %>
+      <%= create_artist_css("#comment-box a { color:#", @user.comments_link_color) %>
+      <%= create_artist_css("#comment-box a:hover { color:#", @user.comments_link_color_hover) %>
+      <%= create_artist_css("#comment-box p a { color:#", @user.comments_user_link_color) %>
+      <%= create_artist_css("#comment-box p a:hover { color:#", @user.comments_user_link_color_hover) %>
+      <%= create_artist_css("#comment-box .well { background-color:#", @user.comments_bg_color) %>
+
+    </style>
+  </head>
+  <body>
+
+    <%= render 'layouts/navbar' %>
+
+    <div class="container">
+      
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+
+
+    </div> <!-- /container -->
+    <%= render 'layouts/footer' %>
+
+    <%= render 'layouts/javascripts' %>
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+      new jPlayerPlaylist({
+        jPlayer: "#jquery_jplayer_1",
+        cssSelectorAncestor: "#jp_container_1"
+      }, [
+        {
+          title:"Cro Magnon Man",
+          mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
+          oga:"http://www.jplayer.org/audio/ogg/TSP-01-Cro_magnon_man.ogg"
+        },
+        {
+          title:"Your Face",
+          mp3:"http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
+          oga:"http://www.jplayer.org/audio/ogg/TSP-05-Your_face.ogg"
+        },
+        {
+          title:"Cyber Sonnet",
+          mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
+          oga:"http://www.jplayer.org/audio/ogg/TSP-07-Cybersonnet.ogg"
+        },
+        {
+          title:"Tempered Song",
+          mp3:"http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
+          oga:"http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg"
+        },
+        {
+          title:"Hidden",
+          mp3:"http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
+          oga:"http://www.jplayer.org/audio/ogg/Miaow-02-Hidden.ogg"
+        },
+        {
+          title:"Lentement",
+          free:true,
+          mp3:"http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3",
+          oga:"http://www.jplayer.org/audio/ogg/Miaow-03-Lentement.ogg"
+        },
+        {
+          title:"Lismore",
+          mp3:"http://www.jplayer.org/audio/mp3/Miaow-04-Lismore.mp3",
+          oga:"http://www.jplayer.org/audio/ogg/Miaow-04-Lismore.ogg"
+        },
+        {
+          title:"Thin Ice",
+          mp3:"http://www.jplayer.org/audio/mp3/Miaow-10-Thin-ice.mp3",
+          oga:"http://www.jplayer.org/audio/ogg/Miaow-10-Thin-ice.ogg"
+        }
+      ], {
+        swfPath: "assets/javascripts",
+        supplied: "oga, mp3",
+        wmode: "window"
+      });
+
+      });
+    </script>
+
+  </body>
+</html>

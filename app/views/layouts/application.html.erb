@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= full_title(yield(:title)) %></title>
+
+    <%= render 'layouts/meta' %>
+    <%= render 'layouts/shim' %>
+    <%= render 'layouts/stylesheets' %>
+    <%= render 'layouts/favicons' %>
+
+  </head>
+  <body>
+
+    <%= render 'layouts/navbar' %>
+
+    <div class="container">
+      
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+
+
+    </div> <!-- /container -->
+    <%= render 'layouts/footer' %>
+
+    <%= render 'layouts/javascripts' %>
+
+  </body>
+</html>

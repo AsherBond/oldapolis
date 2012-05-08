@@ -1,0 +1,24 @@
+<%= provide(:title, 'Edit Photo') %>
+<div class="row">
+	<div class="span6 offset3">
+		<div class="well">
+			<%= link_to "Remove".html_safe, photo_url(@photo), :class => "btn btn-danger btn-mini pull-right", :confirm => "Are you sure you want to delete this photo?", :method => :delete %>
+			<h2 class="hb">Edit gallery photo</h2>
+
+			<%= simple_form_for [@user, @photo], :html => {:class => 'form-vertical' } do |f| %>
+			  <%= devise_error_messages! %>
+			  <%= f.input :caption %>
+			  
+			  <h6>Current Photo</h6>
+			  <%= image_tag @photo.image.url(:small) %>
+
+
+			  <div class="form-actions">
+			  	<%= f.submit "Submit", :class => "btn btn-primary" %>
+			  	<%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
+			  </div>
+			<% end %>
+
+		</div>
+	</div>
+</div>

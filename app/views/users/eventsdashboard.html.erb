@@ -1,0 +1,40 @@
+<%= provide(:title, 'Events Dashboard') %>
+<div class="row">
+	<div class="span3">
+		<div class="well" style="padding:8px 0;">
+			<ul class="nav nav-list">
+			  <li class="nav-header">
+			    Events
+			  </li>
+			  <li><%= link_to "New Event", new_user_event_path(@user) %></li>
+			</ul>
+		</div>
+
+	</div>
+	<div class="span9">
+		<h2 class="hb">My Events</h2>
+        <table id="event-box" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th width="30%">Title</th>
+              <th width="30%">Location</th>
+              <th width="20%">Start</th>
+              <th width="20%">End</th>
+            </tr>
+          </thead>
+          <tbody>
+          	<% @events.each do |e| %>
+            <tr>
+              <td><%= link_to e.title, edit_event_path(e) %></th>
+              <td><%= e.location %></th>
+              <td><%= e.start.to_formatted_s(:long) %></th>
+              <td><%= e.end.to_formatted_s(:long) %></th>
+            </tr>
+            <% end %>
+
+          </tbody>
+        </table>
+
+
+	</div>
+</div>

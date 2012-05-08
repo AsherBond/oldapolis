@@ -1,0 +1,45 @@
+class EventsController < ApplicationController
+  def index
+    @user = User.find(params[:user_id])
+    @events = @user.events
+  end
+  
+  def new
+    @user = User.find(params[:user_id])
+    @event = @user.events.build
+  end
+  
+  def create
+    @user = User.find(params[:user_id])
+    @event = @user.events.build(params[:event])
+    if @event.save
+      flash[:notice] = "Successfully created event."
+      redirect_to events_dashboard_url
+    else
+      render :action => 'new'
+    end
+  end
+  
+  def edit
+    @event = Event.find(params[:id])
+  end
+  
+  def update
+    @event = Event.find(params[:id])
+    if @event.update_attributes(params[:event])
+      flash[:notice] = "Successfully updated event."
+      redirect_to events_dashboard_url
+    else
+      render :action => 'edit'
+    end
+  end
+  
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    flash[:notice] = "Successfully destroyed event."
+    redirect_to events_dashboard_url
+  end
+
+
+end

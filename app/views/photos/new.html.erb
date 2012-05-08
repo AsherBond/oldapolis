@@ -1,0 +1,23 @@
+<%= provide(:title, 'New Photo') %>
+<div class="row">
+	<div class="span6 offset3">
+		<div class="well">
+			<h2 class="hb">Upload gallery photo</h2>
+
+			<%= simple_form_for [@user, @photo], :html => {:class => 'form-vertical' } do |f| %>
+			  <%= devise_error_messages! %>
+
+			  <%= f.input :caption %>
+			  <%= f.input :image %>
+
+
+
+			  <div class="form-actions">
+			  	<%= f.submit "Submit", :class => "btn btn-primary" %>
+			  	<%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
+			  </div>
+			<% end %>
+
+		</div>
+	</div>
+</div>

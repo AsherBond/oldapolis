@@ -1,0 +1,174 @@
+<% provide(:title, 'Edit Profile') %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-horizontal' }) do |f| %>
+
+
+<div class="row">
+  <div class="span12">
+        <%= devise_error_messages! %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="span3">
+    <div id="special-arrows" class="well" style="padding:5px;">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="#1" data-toggle="tab"><i class="icon-home"></i> Body</a></li>
+          <li><a href="#2" data-toggle="tab"><i class="icon-th-large"></i> Main Box</a></li>
+          <li><a href="#3" data-toggle="tab"><i class="icon-music"></i> Music Player</a></li>
+          <li><a href="#4" data-toggle="tab"><i class="icon-list"></i> News</a></li>
+          <li><a href="#5" data-toggle="tab"><i class="icon-info-sign"></i> About</a></li>
+          <li><a href="#6" data-toggle="tab"><i class="icon-comments"></i> Comments</a></li>
+          <li><a href="#7" data-toggle="tab"><i class="icon-th"></i> Albums</a></li>
+          <li><a href="#8" data-toggle="tab"><i class="icon-calendar"></i> Events</a></li>
+          <li><a href="#9" data-toggle="tab"><i class="icon-leaf"></i> Footer</a></li>
+          <li><a href="#10" data-toggle="tab"><i class="icon-road"></i> Navigation</a></li>
+        </ul>
+    </div>
+  </div>
+  <div class="span9 ">
+
+    <div class="well">
+      <div class="tab-content">
+        <div class="pull-right">
+          <a href="#save-changes" class="btn-primary btn" data-toggle="modal">Save Changes</a>
+          <%= link_to "Back", :back, :class => "btn btn-inverse" %>
+        </div>
+        <div class="tab-pane active" id="1">
+          <h2 class="hb"><i class="icon-home"></i> Body</h2>
+          
+          <%= f.input :body_background_color, :input_html => { :class => 'color' } %>
+          <%= f.input :profile_image_bg_color, :input_html => { :class => 'color' } %>
+          <%= f.input :body_background %>
+
+          <%= render 'shared/image_properties' %>
+
+        </div>
+        <div class="tab-pane" id="2">
+          <h2 class="hb"><i class="icon-th-large"></i> Main Box</h2>
+
+          <%= f.input :main_box_h1, :input_html => { :class => 'color' } %>
+          <%= f.input :main_box_h3, :input_html => { :class => 'color' } %>
+          <%= f.input :main_box_p, :input_html => { :class => 'color' } %>
+
+          <h2 class="hb">Background</h2>
+          <%= f.input :main_box_bg_color, :input_html => { :class => 'color' } %>
+          <%= f.input :main_box_background_image %>
+
+          <%= render 'shared/image_properties' %>
+          
+        </div>
+        <div class="tab-pane" id="3">
+            <h2 class="hb"><i class="icon-music"></i> Music Player</h2>
+
+            <%= f.input :player_link_color, :input_html => { :class => 'color' } %>
+            <%= f.input :player_link_color_hover, :input_html => { :class => 'color' } %>
+            <%= f.input :player_link_color_current, :input_html => { :class => 'color' } %>
+
+          <h2 class="hb">Background</h2>
+          <%= f.input :player_bg_color, :input_html => { :class => 'color' } %>
+          <%= f.input :player_header_bg_color, :input_html => { :class => 'color' } %>
+
+        </div>
+        <div class="tab-pane" id="4">
+            <h2 class="hb"><i class="icon-list"></i> News</h2>
+
+            <%= f.input :news_h3, :input_html => { :class => 'color' } %>
+            <%= f.input :news_link_color, :input_html => { :class => 'color' } %>
+            <%= f.input :news_link_color_hover, :input_html => { :class => 'color' } %>
+            <%= f.input :news_p, :input_html => { :class => 'color' } %>
+
+          <h2 class="hb">Background</h2>
+          <%= f.input :news_background_color, :input_html => { :class => 'color' } %>
+          <%= f.input :news_background_image %>
+
+          <%= render 'shared/image_properties' %>
+          
+        </div>
+        <div class="tab-pane" id="5">
+            <h2 class="hb"><i class="icon-info-sign"></i> About</h2>
+
+            <%= f.input :about_h3, :input_html => { :class => 'color' } %>
+            <%= f.input :about_link_color, :input_html => { :class => 'color' } %>
+            <%= f.input :about_link_color_hover, :input_html => { :class => 'color' } %>
+
+          <h2 class="hb">Background</h2>
+          <%= f.input :about_bg_color, :input_html => { :class => 'color' } %>
+          <%= f.input :about_background_image %>
+
+          <%= render 'shared/image_properties' %>
+          
+        </div>
+        <div class="tab-pane" id="6">
+            <h2 class="hb"><i class="icon-comments"></i> Comments</h2>
+
+            <%= f.input :comments_h3_color, :input_html => { :class => 'color' } %>
+            <%= f.input :comments_color, :input_html => { :class => 'color' } %>
+            <%= f.input :comments_link_color, :input_html => { :class => 'color' } %>
+            <%= f.input :comments_link_color_hover, :input_html => { :class => 'color' } %>
+            <%= f.input :comments_user_link_color, :input_html => { :class => 'color' } %>
+            <%= f.input :comments_user_link_color_hover, :input_html => { :class => 'color' } %>
+
+          <h2 class="hb">Background</h2>
+          <%= f.input :comments_bg_color, :input_html => { :class => 'color' } %>
+          <%= f.input :comments_background_image %>
+
+          <%= render 'shared/image_properties' %>
+
+        </div>
+        <div class="tab-pane" id="7">
+            <h2 class="hb"><i class="icon-th"></i> Albums</h2>
+
+            <%= f.input :albums_h3_color, :input_html => { :class => 'color' } %>
+            <%= f.input :albums_link_color, :input_html => { :class => 'color' } %>
+            <%= f.input :albums_link_color_hover, :input_html => { :class => 'color' } %>
+            <%= f.input :albums_date_color, :input_html => { :class => 'color' } %>
+
+          <h2 class="hb">Background</h2>
+          <%= f.input :albums_bg_color, :input_html => { :class => 'color' } %>
+        </div>
+        <div class="tab-pane" id="8">
+            <h2 class="hb"><i class="icon-calendar"></i> Events</h2>
+
+            <%= f.input :events_h3_color, :input_html => { :class => 'color' } %>
+            <%= f.input :events_header_color, :input_html => { :class => 'color' } %>
+            <%= f.input :events_text_color, :input_html => { :class => 'color' } %>
+            <%= f.input :events_link_color, :input_html => { :class => 'color' } %>
+            <%= f.input :events_link_color_hover, :input_html => { :class => 'color' } %>
+
+          <h2 class="hb">Background</h2>
+          <%= f.input :events_header_bg_color, :input_html => { :class => 'color' } %>
+          <%= f.input :events_body_bg_color, :input_html => { :class => 'color' } %>
+          <%= f.input :events_bg_color_hover, :input_html => { :class => 'color' } %>
+        </div>
+        <div class="tab-pane" id="9">
+            <h2 class="hb"><i class="icon-leaf"></i> Footer</h2>
+
+        </div>
+        <div class="tab-pane" id="10">
+            <h2 class="hb"><i class="icon-road"></i> Navigation</h2>
+
+            <%= f.input :nav_link_color, :input_html => { :class => 'color' } %>
+            <%= f.input :nav_link_color_hover, :input_html => { :class => 'color' } %>
+            <%= f.input :nav_link_color_current, :input_html => { :class => 'color' } %>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+                <div class="modal fade" id="save-changes" style="display:none;">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">×</button>
+                        <h3>Enter in your password to save changes!</h3>
+                    </div>
+                    <div class="modal-body">
+                        <%= f.input :current_password %>
+                    </div>
+                    <div class="modal-footer">
+                        <%= f.submit "Save Changes", :class => "btn btn-success" %>
+                    </div>
+                </div><!-- /modal-save-changes -->
+<% end %>

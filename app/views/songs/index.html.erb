@@ -1,0 +1,38 @@
+<%= provide(:title, 'New Song') %>
+<div class="row">
+	<div class="span12">
+        <div class="btn-group pull-right">
+	        <%= link_to "<i class='icon-upload'></i> Add Song".html_safe, new_album_song_path(@album), :class => "btn btn-success"  %>
+	        <%= link_to "<i class='icon-edit'></i> Edit Album".html_safe, edit_album_path(@album), :class => "btn"  %>
+	        <%= link_to "<i class='icon-remove'></i> Delete Album".html_safe, album_url(@album), :class => "btn btn-danger", :confirm => "Are you sure you want to delete this album?", :method => :delete %>
+	        <%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
+	    </div>
+		<h2 class="hb">Managing album <%= @album.title %></h2>
+
+		<%= render 'shared/player' %>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<div class="span12">
+		<div class="alert alert-info">
+			You can edit the songs for this album below.
+		</div>
+		<ul class="thumbnails">
+		<% @songs.each do |song| %>
+		  <li class="span3">
+		    <div class="thumbnail">
+		      <%= image_tag song.artwork.url(:medium) %>
+		      <h5><%= link_to song.title, song %></h5>
+		      <div class="btn-group">
+		      	<%= link_to "Lyrics", "#", :class => "btn btn-mini" %>
+		      	<%= link_to "Edit", edit_song_path(song), :class => "btn btn-mini btn-info" %>
+		      	<%= link_to "Remove".html_safe, song_url(song), :class => "btn btn-danger btn-mini", :confirm => "Are you sure you want to delete this song?", :method => :delete %>
+		      </div>
+		    </div>
+		  </li>
+		<% end %>
+		</ul>
+
+	</div>
+</div>

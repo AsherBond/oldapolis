@@ -1,0 +1,37 @@
+<%= provide(:title, 'Album Dashboard') %>
+<div class="row">
+	<div class="span3">
+		<div class="well" style="padding:8px 0;">
+			<ul class="nav nav-list">
+			  <li class="nav-header">
+			    Albums
+			  </li>
+			  <li><%= link_to "Create New Album", new_user_album_path(@user) %></li>
+			</ul>
+		</div>
+		<div class="well">
+			<p>Here you can edit, delete and add songs to albums.</p>
+			<p>To get started hover over the buttons under each album for a description, you will be guided throughout the process.</p>
+		</div>
+	</div>
+	<div class="span9">
+		<h2 class="hb">My Albums</h2>
+		<ul class="thumbnails">
+	        <% @albums.each do |album| %>
+	            <li class="span3">
+	            	<div class="thumbnail">
+	                    <%= image_tag album.artwork.url(:medium) %>
+	                    <h5><%= link_to album.title, album %></h5>
+	                    <div class="btn-group">
+	                    	<%= link_to "<i class='icon-upload'></i> Add".html_safe, new_album_song_path(album), :class => "btn btn-mini btn-success"  %>
+	                    	<%= link_to "<i class='icon-list-alt'></i> Manage".html_safe, album_songs_path(album), :class => "btn btn-mini btn-warning"  %>
+	                    	<%= link_to "<i class='icon-edit'></i> Edit".html_safe, edit_album_path(album), :class => "btn btn-mini btn-danger"  %>
+	                    </div>
+	                  </div>
+	            </li>
+	        <% end %>
+
+    	</ul>
+
+	</div>
+</div>

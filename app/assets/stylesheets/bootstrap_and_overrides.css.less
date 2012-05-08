@@ -1,0 +1,256 @@
+@import "twitter/bootstrap/bootstrap";
+body { padding-top: 70px; }
+// @import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
+@iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
+
+@fontAwesomeEotPath: asset-path('fontawesome-webfont.eot');
+@fontAwesomeWoffPath: asset-path('fontawesome-webfont.woff');
+@fontAwesomeTtfPath: asset-path('fontawesome-webfont.ttf');
+@fontAwesomeSvgzPath: asset-path('fontawesome-webfont.svgz');
+@fontAwesomeSvgPath: asset-path('fontawesome-webfont.svg');
+
+// Font Awesome
+@import "fontawesome";
+
+
+@myRed: #A33724;
+@myGray: #e3e3e3;
+@myYellow: #fff6e4;
+@navbarBackground: darken(@myRed, 1%);
+@navbarBackgroundHighlight: lighten(@myRed, 1%);
+@navbarLinkColor: @white;
+@navbarLinkColorHover: lighten(@myRed, 35%);
+
+@linkColor: @myRed;
+@linkColorHover: darken(@myRed, 10%);
+
+@tableBackground: @myGray;
+@tableBackgroundAccent:@myYellow;
+@tableBorder: #c4c4c4;
+
+// 
+img { max-width: 100%; }
+label {
+	color:darken(@myRed, 20%);
+	text-transform:uppercase;
+}
+div.span6.offset3 div.well {
+	.box-shadow(0 10px 10px rgba(0,0,0,.25));
+}
+
+#error_explanation {
+	background:lighten(@myRed,30%);
+	padding:15px;
+	margin-bottom:20px;
+
+	border:1px solid @myRed;
+	.box-shadow(3px 3px 3px rgba(0,0,0,0.2));
+	.transition(all .8s ease-in-out); 
+	.border-radius(5px 5px);
+
+	h2 {
+		color:@myRed;
+		text-shadow: 0px 1px 0 rgba(255,255,255,0.2);
+	}
+}
+
+// Signup Features
+//
+
+#signup-features .well { 
+	.transition(all .2s ease-in-out); 
+}
+
+#signup-features .well {
+	background-color:@myRed;
+	color:white;
+}
+#signup-features .well:hover {
+	background-color:@myGray;
+	color:black;
+}
+
+.navbar-inner { padding-top:5px;padding-bottom:7px; }
+
+.color { 
+   font-size:120%;
+   padding:10px;
+}
+
+
+.nav-pills  { font-family: 'Open Sans Condensed', sans-serif; font-size:18px; font-weight:700;}
+
+#special-arrows .nav-pills > .active > a,
+#special-arrows .nav-pills > .active > a:hover {
+  color: #ffffff;
+  background-color:none;
+  background: url('/assets/special_arrow.png');
+  background-repeat:no-repeat;
+  background-position:right;
+  width:97%;
+}
+
+.thumbnail {
+	background-color: @myGray;
+}
+a.brand { 
+  margin-top:3px;
+  margin-right:10px;
+  
+  width:120px;
+  height:15px;
+  background-image: url('/assets/logo.png');
+  background-position:top right;
+  background-repeat:no-repeat; 
+  .transition(background-image .3s ease-in-out);
+
+}
+.brand:hover {
+  background-image: url('/assets/logo_hover.png');
+}
+
+
+h1,h2,h3,h4 {
+	font-family: 'Open Sans Condensed', sans-serif; 
+
+}
+hr {
+	border-bottom-color: rgba(0,0,0,0.1);
+	border-top-color: rgba(255,255,255,0.2);
+	
+}
+.hero-unit h1 {
+	color: @white;
+	position:relative;
+	font: 70px 'Open Sans Condensed';
+	font-weight:700;
+}
+
+.hero-unit {
+	background: url('/assets/kode.jpg') center;
+	color:@white;
+}
+
+.monster {
+	text-align:center;
+	background: url('/assets/home_bg_top.png') center bottom no-repeat;
+	
+	.transition(background-image .3s ease-in-out);
+}
+.monster section {
+	padding:0 30%;
+}
+
+.monster:hover {
+	background: url('/assets/home_bg_top_hover.png') center bottom no-repeat;
+}
+
+.monster h1 {
+	color: @myRed;
+	font: 70px 'Oleo Script';
+	letter-spacing:-2px;
+	font-weight:normal;
+	text-shadow: 0px 1px 0px rgba(255,255,255,0.4); 
+	padding-top:50px;
+}
+
+.monster p {
+	color: @black;
+	font: 24px 'Open Sans Condensed';
+	font-weight:700;
+	padding:20px 100px;
+}
+ .thumbnail, a.thumbnail {
+	padding:10px;
+	.transition(box-shadow .3s ease-in-out);
+}
+ .thumbnail:hover, a.thumbnail:hover {
+	.box-shadow(0 10px 10px rgba(0,0,0,.25));
+}
+#top-artist .thumbnail img {
+
+	.border-radius(5px 5px 5px 5px);
+	margin-bottom:5px;
+}
+body {
+	background-image: url('/assets/bg.png');
+}
+
+.hb {
+	border-bottom: 1px dashed rgba(0,0,0,0.1);
+	padding-bottom:5px;
+	margin-bottom:5px;
+
+}
+p.hb { font-size:12px;}
+.nav-btn {
+	.gradientBar(darken(@myRed, 5%), lighten(@myRed, 10%);
+	.border-radius(5px);
+	border:1px solid darken(@myRed, 10%);
+}
+
+.enlarge {
+	font-family: 'Open Sans Condensed', sans-serif; 
+	font-size:170%;
+
+}
+.form-actions {
+	.border-radius(5px 5px);
+	.box-shadow(0px 0px 3px rgba(0,0,0,0.4));
+	background:darken(@myGray, 2%);
+}
+
+footer .container-fluid {
+  background:darken(@myGray, 40%);
+  border-top: 10px solid darken(@myGray, 20%);
+  color:white;
+  padding:20px 0;
+  margin-top:20px;
+  margin-bottom:none;
+
+}
+
+footer li { list-style:none;color:white;font-size:14px;padding:3px; }
+footer li i { font-size:18px; }
+footer li a, footer li a:visited { color:white;font-weight:bold;text-decoration:none; border-bottom:1px dotted rgba(255,255,255,0.4); }
+footer li a:hover, footer li a:active { color:#ffeab7;font-weight:bold;text-decoration:none;  }
+footer ul { margin-left:10px; }
+footer h1, footer h4 { 
+  color:white;
+  text-shadow:1px 1px 0 rgba(0,0,0,0.5);
+}
+footer h1 {
+  font-size:45px;
+  padding:15px 0;
+}
+footer h4{
+  font-size:120%;
+}
+
+
+@media (max-width: 480px) {
+  footer > .container-fluid {  
+    padding:20px;
+    -webkit-border-top-left-radius: 15px;
+    -webkit-border-top-right-radius: 15px;
+    -moz-border-radius-topleft: 15px;
+    -moz-border-radius-topright: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  } 
+}
+@media (max-width: 767px) {
+
+  footer > .container-fluid { 
+    padding:20px;
+    -webkit-border-top-left-radius: 15px;
+    -webkit-border-top-right-radius: 15px;
+    -moz-border-radius-topleft: 15px;
+    -moz-border-radius-topright: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  } 
+}
