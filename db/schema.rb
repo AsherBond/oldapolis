@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120508055104) do
+ActiveRecord::Schema.define(:version => 20120508231749) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -42,8 +42,10 @@ ActiveRecord::Schema.define(:version => 20120508055104) do
     t.string   "artwork_content_type"
     t.integer  "artwork_file_size"
     t.datetime "artwork_updated_at"
+    t.string   "slug"
   end
 
+  add_index "albums", ["slug"], :name => "index_albums_on_slug", :unique => true
   add_index "albums", ["user_id"], :name => "index_albums_on_user_id"
 
   create_table "artists", :force => true do |t|
@@ -79,8 +81,10 @@ ActiveRecord::Schema.define(:version => 20120508055104) do
     t.integer  "flyer_file_size"
     t.datetime "flyer_updated_at"
     t.string   "location"
+    t.string   "slug"
   end
 
+  add_index "events", ["slug"], :name => "index_events_on_slug", :unique => true
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
 
   create_table "microposts", :force => true do |t|
@@ -140,9 +144,11 @@ ActiveRecord::Schema.define(:version => 20120508055104) do
     t.string   "song_content_type"
     t.integer  "song_file_size"
     t.datetime "song_updated_at"
+    t.string   "slug"
   end
 
   add_index "songs", ["album_id"], :name => "index_songs_on_album_id"
+  add_index "songs", ["slug"], :name => "index_songs_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                                  :default => "", :null => false

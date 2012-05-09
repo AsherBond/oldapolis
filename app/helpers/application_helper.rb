@@ -13,6 +13,10 @@ module ApplicationHelper
 		name + value + "; }" unless value.blank?
 	end
 
+	def create_artist_bg(name, value)
+		name + value + "); }" unless value.blank?
+	end
+
 	def resource_name
 		:user
 	end

@@ -1,31 +1,37 @@
 class User < ActiveRecord::Base
-  rolify
-  has_many :albums
-  has_many :microposts
-  has_many :photos
-  has_many :events
-  has_many :songs, :through => :albums
+	
+	# This user has roles.
+	rolify
 
-  before_create :define_role
+	# Got some weird error when I combined them, come back to it...
+  	has_many :albums
+  	has_many :microposts
+  	has_many :photos
+  	has_many :events
+  	has_many :songs, :through => :albums
 
-  include PgSearch
-  pg_search_scope :search, against: [:artist_name, :about],
-    using: {tsearch: {dictionary: "english"}},
-    ignoring: :accents
+  	# Lets make sure the user has a role.
+	before_create :define_role
 
-  def self.text_search(query)
-    if query.present?
-      search(query)
+	# Search the users.
+	include PgSearch
+	pg_search_scope :search, against: [:artist_name, :about],
+	  			    using: { tsearch: {dictionary: "english"} },
+	                ignoring: :accents
 
-    else
-      scoped
-    end
-  end
+	# Search Helper
+	def self.text_search(query)
+		if query.present?
+	    	search(query)
+	    else
+	    	scoped
+	    end
+	end
 
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+	# Include default devise modules. Others available are:
+	# :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+	devise :database_authenticatable, :registerable,
+    	   :recoverable, :rememberable, :trackable, :validatable
 
 	# Hacker beware.
 	# ------
@@ -106,14 +112,12 @@ class User < ActiveRecord::Base
 	# -----
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-
 	# Validate the current users email with a regex.
 	# -----
 	validates :email, 
 			  presence: true, 
 			  format: { with: VALID_EMAIL_REGEX, :message => "is not a valid email" },
 			  uniqueness: { case_sensitive: false, :message => "is already registered" }
-
 
 	# Validate the current users password.
 	# -----
@@ -130,7 +134,6 @@ class User < ActiveRecord::Base
 			  	:message => "must be inbetween 6-35 characters"
 			  },
 			  :on => :create
-
 
 	# Edit profile validations
 	validates :first_name,   
@@ -207,19 +210,20 @@ class User < ActiveRecord::Base
 	                  :url  => "/system/users/main_box_background_image/:id/:style/:basename.:extension",
 	                  :path => ":rails_root/public/system/users/main_box_background_image/:id/:style/:basename.:extension"
         
-	has_attached_file :body_background, :styles => { :small => "150x150>" },
+	has_attached_file :body_background_image, :styles => { :small => "150x150>" },
 	                  :url  => "/system/users/body_background/:id/:style/:basename.:extension",
 	                  :path => ":rails_root/public/system/users/body_background/:id/:style/:basename.:extension"
         
 	def update_with_password(params={}) 
-	  if params[:password].blank? 
-	    params.delete(:password) 
-	    params.delete(:password_confirmation) if params[:password_confirmation].blank? 
-	  end 
-	  update_attributes(params) 
-	end      
-  private
-  	def define_role 
-  		self.add_role :fan
-  	end
+		if params[:password].blank? 
+	    	params.delete(:password) 
+	    	params.delete(:password_confirmation) if params[:password_confirmation].blank? 
+		end 
+			update_attributes(params) 
+		end
+		      
+	private
+		def define_role 
+  			self.add_role :fan
+  		end
 end

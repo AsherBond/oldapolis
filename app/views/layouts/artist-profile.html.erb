@@ -11,6 +11,7 @@
     <%= render 'layouts/favicons' %>
     <style type="text/css">
       <%= create_artist_css("body { background-color:#", @user.body_background_color) %>
+      <%= create_artist_bg("body { background-image:url(", @user.body_background_image.url) %>
 
       <%= create_artist_css("#main-box h1 { color:#", @user.main_box_h1) %>
       <%= create_artist_css("#main-box h3 { color:#", @user.main_box_h3) %>

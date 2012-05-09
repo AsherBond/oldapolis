@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="span5">
+		<div class="well">
+			<h2><%= @artist.artist_name %></h2>
+			<h4><%= @artist.city %>, <%= @artist.state %></h4>
+		</div>
+
+	</div>
+	<div class="span7">
+		<h1 class="hb"><%= @album.title %></h1>
+		<%= render 'shared/player' %>
+	</div>
+</div>
