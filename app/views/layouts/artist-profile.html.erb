@@ -66,7 +66,7 @@
       <%= create_artist_css("table#event-box tbody tr:hover td { background-color:#", @user.events_bg_color_hover) %>
       <%= create_artist_css("table#event-box thead tr { background-color:#", @user.events_header_bg_color) %>
       <%= create_artist_css("table#event-box thead tr { color:#", @user.events_header_color) %>
-      <%= create_artist_css("table#event-box, table#event-box th, table#event-box td { border-color:#", @user.events_header_color) %>
+      <%= create_artist_css("table#event-box, table#event-box th, table#event-box td { border-color:#", @user.events_header_bg_color) %>
 
       <%= create_artist_css("#micropost-box h3 { color:#", @user.microposts_h3_color) %>
       <%= create_artist_css("#micropost-box p { color:#", @user.microposts_color) %>
