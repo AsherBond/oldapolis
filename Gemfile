@@ -45,7 +45,7 @@ gem 'simple_form'
 gem 'friendly_id', :git => 'git://github.com/norman/friendly_id.git'
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-
+gem "paperclip-ffmpeg"
 # gem 'texticle', '~> 2.0', :require => 'texticle/rails'
 
 gem 'pg_search'

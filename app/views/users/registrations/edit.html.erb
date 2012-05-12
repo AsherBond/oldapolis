@@ -1,302 +1,347 @@
 <% provide(:title, 'Edit Profile') %>
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-horizontal' }) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'form-horizontal'}) do |f| %>
 
 
-<div class="row">
-  <div class="span12">
+    <div class="row">
+      <div class="span12">
         <%= devise_error_messages! %>
-  </div>
-</div>
+      </div>
+    </div>
 
-<div class="row">
-  <div class="span3">
-    <div id="special-arrows" class="well" style="padding:5px;">
+    <div class="row">
+    <div class="span3">
+      <div id="special-arrows" class="well" style="padding:5px;">
         <ul class="nav nav-pills nav-stacked">
           <li class="active"><a href="#1" data-toggle="tab"><i class="icon-list-alt"></i> Account Settings</a></li>
           <li><a href="#2" data-toggle="tab"><i class="icon-user"></i> Personal Information</a></li>
           <li><a href="#3" data-toggle="tab"><i class="icon-camera-retro"></i> Profile Image</a></li>
           <li><a href="#4" data-toggle="tab"><i class="icon-cogs"></i> Customize Profile</a></li>
         </ul>
-    </div>
-  </div>
-  <div class="span9 ">
-
-    <div class="well">
-      <div class="tab-content">
-        <div class="pull-right">
-          <%= f.submit "Save Changes", :class => "btn btn-primary" %>
-          <%= link_to "Back", :back, :class => "btn btn-inverse" %>
-        </div>
-        <div class="tab-pane active" id="1">
-          <h2 class="hb"><i class="icon-list-alt"></i> Account Settings</h2>
-
-          <h3><a data-toggle="collapse" data-target="#change-username"><i class="icon-tag"></i> Username</a></h3>
-          <p class="hb">Update your username and profile url.</p>
-          <div id="change-username" class="collapse out">
-
-            <%= f.input :username, :hint => "This is also your your url, http://username.mozapolis.com/" %>
-            <%= f.input :artist_name, :hint => "Your band/artist name." %>
-
-            <hr>
-
-          </div><!-- /change-username -->
-
-          <h3><a data-toggle="collapse" data-target="#change-pw"><i class="icon-key"></i> Password</a></h3>
-          <p class="hb">Update your password.</p>
-          <div id="change-pw" class="collapse out">
-
-            <%= f.input :password, :hint => "Min 6 chars, no special characters please." %>
-            <%= f.input :password_confirmation %>
-
-            <hr>
-
-          </div><!-- /change-pw -->
-
-          <h3><a data-toggle="collapse" data-target="#change-email"><i class="icon-envelope"></i> Email Adrress</a></h3>
-          <p class="hb">Update your account emails and notifications.</p>
-          <div id="change-email" class="collapse out">
-
-            <%= f.input :email, :hint => "Must be a valid email address." %>
-
-            <hr>
-
-          </div><!-- /change-pw -->
-
-          <h3><a data-toggle="collapse" data-target="#cancel"><i class="icon-remove-sign"></i> Cancel Account</a></h3>
-          <p class="hb">Be careful.</p>
-          <div id="cancel" class="collapse out">
-
-            <p><strong>Once it's gone, it's gone. This will permanetly delete your account forever.</strong></p>
-            <p><%= link_to "Cancel my account", registration_path(resource_name), :class => "btn btn-danger", :confirm => "Are you sure?", :method => :delete %></p>
-
-            <hr>
-
-          </div><!-- /cancel-account -->
-
-        </div>
-
-        <div class="tab-pane" id="2">
-          <h2 class="hb"><i class="icon-user"></i> Personal Information</h2>
-
-          <h3><a data-toggle="collapse" data-target="#change-basic-info"><i class="icon-star"></i> Basic Information</a></h3>
-          <p class="hb">Tell us a little bit about yourself.</p>
-          <div id="change-basic-info" class="collapse out">
-
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :about, :input_html => { :class => "span5" } %>
-
-
-            <hr>
-
-          </div><!-- /change-username -->
-
-          <h3><a data-toggle="collapse" data-target="#change-location"><i class="icon-map-marker"></i> Location</a></h3>
-          <p class="hb">Find out whats going on around you.</p>
-          <div id="change-location" class="collapse out">
-
-            <%= f.input :city %>
-            <%= f.input :state %>
-            <%= f.input :zip %>
-
-            <hr>
-
-          </div><!-- /change-pw -->
-
-
-
-        </div>
-        <div class="tab-pane" id="3">
-            <h2 class="hb"><i class="icon-camera-retro"></i> Update Profile Image</h2>
-            <%= f.input :profile_image %>
-
-            <% if @user.profile_image.file? %>
-              <h6>Current Image</h6>
-
-              <p><%= image_tag @user.profile_image.url(:small) %></p>
-            <% end %>
-
-        </div>
-
-        <div class="tab-pane" id="4">
-          <h2 class="hb"><i class="icon-cogs"></i> Customize Profile</h2>
-
-          <h3><a data-toggle="collapse" data-target="#customize-background"><i class="icon-home"></i> Body</a></h3>
-          <p class="hb">Change your profile background.</p>
-          <div id="customize-background" class="collapse out">
-          
-            <%= f.input :body_background_color, :input_html => { :class => 'color' } %>
-            <%= f.input :profile_image_bg_color, :input_html => { :class => 'color' } %>
-            <%= f.input :body_background_image %>
-
-            <%= render 'shared/image_properties' %>
-
-            <hr>
-
-          </div><!-- /customize-background -->
-
-          <h3><a data-toggle="collapse" data-target="#customize-mainbox"><i class="icon-th-large"></i> Main Box</a></h3>
-          <p class="hb">Customize the main user box on your profile.</p>
-          <div id="customize-mainbox" class="collapse out">
-          
-            <h6 class="hb">Text</h6>
-            <%= f.input :main_box_h1, :input_html => { :class => 'color' } %>
-            <%= f.input :main_box_h3, :input_html => { :class => 'color' } %>
-            <%= f.input :main_box_p, :input_html => { :class => 'color' } %>
-
-            <h6 class="hb">Background</h6>
-            <%= f.input :main_box_bg_color, :input_html => { :class => 'color' } %>
-            <%= f.input :main_box_background_image %>
-
-            <%= render 'shared/image_properties' %>
-
-            <hr>
-
-          </div><!-- /customize-mainbox -->
-
-          <h3><a data-toggle="collapse" data-target="#customize-player"><i class="icon-music"></i> Music Player</a></h3>
-          <p class="hb">Customize the music player.</p>
-          <div id="customize-player" class="collapse out">
-          
-            <h6 class="hb">Links</h6>
-            <%= f.input :player_link_color, :input_html => { :class => 'color' } %>
-            <%= f.input :player_link_color_hover, :input_html => { :class => 'color' } %>
-            <%= f.input :player_link_color_current, :input_html => { :class => 'color' } %>
-
-            <h6 class="hb">Background</h6>
-            <%= f.input :player_bg_color, :input_html => { :class => 'color' } %>
-            <%= f.input :player_header_bg_color, :input_html => { :class => 'color' } %>
-
-            <hr>
-
-          </div><!-- /customize-player -->
-
-          <h3><a data-toggle="collapse" data-target="#customize-news"><i class="icon-list"></i> News</a></h3>
-          <p class="hb">Customize the news box.</p>
-          <div id="customize-news" class="collapse out">
-          
-            <h6 class="hb">Text</h6>
-            <%= f.input :news_h3, :input_html => { :class => 'color' } %>
-            <%= f.input :news_p, :input_html => { :class => 'color' } %>
-
-            <h6 class="hb">Links</h6>
-            <%= f.input :news_link_color, :input_html => { :class => 'color' } %>
-            <%= f.input :news_link_color_hover, :input_html => { :class => 'color' } %>
-
-            <h6 class="hb">Background</h6>
-            <%= f.input :news_background_color, :input_html => { :class => 'color' } %>
-            <%= f.input :news_background_image %>
-
-            <%= render 'shared/image_properties' %>
-
-            <hr>
-
-          </div><!-- /customize-news -->
-
-          <h3><a data-toggle="collapse" data-target="#customize-about"><i class="icon-info-sign"></i> About</a></h3>
-          <p class="hb">Customize the about box.</p>
-          <div id="customize-about" class="collapse out">
-          
-            <h6 class="hb">Text</h6>
-            <%= f.input :about_h3, :input_html => { :class => 'color' } %>
-            
-            <h6 class="hb">Links</h6>
-            <%= f.input :about_link_color, :input_html => { :class => 'color' } %>
-            <%= f.input :about_link_color_hover, :input_html => { :class => 'color' } %>
-
-            <h6 class="hb">Background</h6>
-            <%= f.input :about_bg_color, :input_html => { :class => 'color' } %>
-            <%= f.input :about_background_image %>
-
-            <%= render 'shared/image_properties' %>
-
-            <hr>
-
-          </div><!-- /customize-about -->
-
-          <h3><a data-toggle="collapse" data-target="#customize-comments"><i class="icon-comments"></i> Comments</a></h3>
-          <p class="hb">Customize your comments.</p>
-          <div id="customize-comments" class="collapse out">
-          
-            <h6 class="hb">Test</h6>
-            <%= f.input :comments_h3_color, :input_html => { :class => 'color' } %>
-            <%= f.input :comments_color, :input_html => { :class => 'color' } %>
-
-            <h6 class="hb">Links</h6>
-            <%= f.input :comments_link_color, :input_html => { :class => 'color' } %>
-            <%= f.input :comments_link_color_hover, :input_html => { :class => 'color' } %>
-            <%= f.input :comments_user_link_color, :input_html => { :class => 'color' } %>
-            <%= f.input :comments_user_link_color_hover, :input_html => { :class => 'color' } %>
-
-            <h6 class="hb">Background</h6>
-            <%= f.input :comments_bg_color, :input_html => { :class => 'color' } %>
-            <%= f.input :comments_background_image %>
-
-            <%= render 'shared/image_properties' %>
-
-            <hr>
-
-          </div><!-- /customize-comments -->
-
-          <h3><a data-toggle="collapse" data-target="#customize-albums"><i class="icon-th"></i> Albums</a></h3>
-          <p class="hb">Customize your album thumbnails.</p>
-          <div id="customize-albums" class="collapse out">
-          
-            <h6 class="hb">Text</h6>
-            <%= f.input :albums_h3_color, :input_html => { :class => 'color' } %>
-            <%= f.input :albums_date_color, :input_html => { :class => 'color' } %>
-            
-            <h6 class="hb">Links</h6>
-            <%= f.input :albums_link_color, :input_html => { :class => 'color' } %>
-            <%= f.input :albums_link_color_hover, :input_html => { :class => 'color' } %>
-
-            <h6 class="hb">Background</h6>
-            <%= f.input :albums_bg_color, :input_html => { :class => 'color' } %>
-
-            <hr>
-
-          </div><!-- /customize-albums -->
-
-          <h3><a data-toggle="collapse" data-target="#customize-events"><i class="icon-calendar"></i> Events</a></h3>
-          <p class="hb">Customize your events lists.</p>
-          <div id="customize-events" class="collapse out">
-          
-            <h6 class="hb">Text</h6>
-            <%= f.input :events_header_color, :input_html => { :class => 'color' } %>
-            <%= f.input :events_h3_color, :input_html => { :class => 'color' } %>
-            <%= f.input :events_text_color, :input_html => { :class => 'color' } %>
-
-            <h6 class="hb">Links</h6>
-            <%= f.input :events_link_color, :input_html => { :class => 'color' } %>
-            <%= f.input :events_link_color_hover, :input_html => { :class => 'color' } %>
-
-            <h6 class="hb">Background</h6>
-            <%= f.input :events_header_bg_color, :input_html => { :class => 'color' } %>
-            <%= f.input :events_body_bg_color, :input_html => { :class => 'color' } %>
-            <%= f.input :events_bg_color_hover, :input_html => { :class => 'color' } %>
-
-            <hr>
-
-          </div><!-- /customize-events -->
-
-          <h3><a data-toggle="collapse" data-target="#customize-nav"><i class="icon-road"></i> Navigation</a></h3>
-          <p class="hb">Customize your navigation links.</p>
-          <div id="customize-nav" class="collapse out">
-          
-            <h6 class="hb">Links</h6>
-            <%= f.input :nav_link_color, :input_html => { :class => 'color' } %>
-            <%= f.input :nav_link_color_hover, :input_html => { :class => 'color' } %>
-            <%= f.input :nav_link_color_current, :input_html => { :class => 'color' } %>
-
-            <hr>
-
-          </div><!-- /customize-nav -->
-        </div>
-
       </div>
     </div>
-  </div>
-</div>
+    <div class="span9 ">
 
-=
+    <div class="well">
+    <div class="tab-content">
+    <div class="pull-right">
+      <%= f.submit "Save Changes", :class => "btn btn-primary" %>
+      <%= link_to "Back", :back, :class => "btn btn-inverse" %>
+    </div>
+    <div class="tab-pane active" id="1">
+      <h2 class="hb"><i class="icon-list-alt"></i> Account Settings</h2>
+
+      <h3><a data-toggle="collapse" data-target="#change-username"><i class="icon-tag"></i> Username</a></h3>
+
+      <p class="hb">Update your username and profile url.</p>
+
+      <div id="change-username" class="collapse out">
+
+        <%= f.input :username, :hint => "This is also your your url, http://username.mozapolis.com/" %>
+        <%= f.input :artist_name, :hint => "Your band/artist name." %>
+
+        <hr>
+
+      </div>
+      <!-- /change-username -->
+
+      <h3><a data-toggle="collapse" data-target="#change-pw"><i class="icon-key"></i> Password</a></h3>
+
+      <p class="hb">Update your password.</p>
+
+      <div id="change-pw" class="collapse out">
+
+        <%= f.input :password, :hint => "Min 6 chars, no special characters please." %>
+        <%= f.input :password_confirmation %>
+
+        <hr>
+
+      </div>
+      <!-- /change-pw -->
+
+      <h3><a data-toggle="collapse" data-target="#change-email"><i class="icon-envelope"></i> Email Adrress</a></h3>
+
+      <p class="hb">Update your account emails and notifications.</p>
+
+      <div id="change-email" class="collapse out">
+
+        <%= f.input :email, :hint => "Must be a valid email address." %>
+
+        <hr>
+
+      </div>
+      <!-- /change-pw -->
+
+      <h3><a data-toggle="collapse" data-target="#cancel"><i class="icon-remove-sign"></i> Cancel Account</a></h3>
+
+      <p class="hb">Be careful.</p>
+
+      <div id="cancel" class="collapse out">
+
+        <p><strong>Once it's gone, it's gone. This will permanetly delete your account forever.</strong></p>
+
+        <p><%= link_to "Cancel my account", registration_path(resource_name), :class => "btn btn-danger", :confirm => "Are you sure?", :method => :delete %></p>
+
+        <hr>
+
+      </div>
+      <!-- /cancel-account -->
+
+    </div>
+
+    <div class="tab-pane" id="2">
+      <h2 class="hb"><i class="icon-user"></i> Personal Information</h2>
+
+      <h3><a data-toggle="collapse" data-target="#change-basic-info"><i class="icon-star"></i> Basic Information</a>
+      </h3>
+
+      <p class="hb">Tell us a little bit about yourself.</p>
+
+      <div id="change-basic-info" class="collapse out">
+
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :about, :input_html => {:class => "span5"} %>
+
+
+        <hr>
+
+      </div>
+      <!-- /change-username -->
+
+      <h3><a data-toggle="collapse" data-target="#change-location"><i class="icon-map-marker"></i> Location</a></h3>
+
+      <p class="hb">Find out whats going on around you.</p>
+
+      <div id="change-location" class="collapse out">
+
+        <%= f.input :city %>
+        <%= f.input :state %>
+        <%= f.input :zip %>
+
+        <hr>
+
+      </div>
+      <!-- /change-pw -->
+
+
+    </div>
+    <div class="tab-pane" id="3">
+      <h2 class="hb"><i class="icon-camera-retro"></i> Update Profile Image</h2>
+      <%= f.input :profile_image %>
+
+      <% if @user.profile_image.file? %>
+          <h6>Current Image</h6>
+
+          <p><%= image_tag @user.profile_image.url(:small) %></p>
+      <% end %>
+
+    </div>
+
+    <div class="tab-pane" id="4">
+      <h2 class="hb"><i class="icon-cogs"></i> Customize Profile</h2>
+
+      <h3><a data-toggle="collapse" data-target="#customize-background"><i class="icon-home"></i> Body</a></h3>
+
+      <p class="hb">Change your profile background.</p>
+
+      <div id="customize-background" class="collapse out">
+
+        <%= f.input :body_background_color, :input_html => {:class => 'color'} %>
+        <%= f.input :profile_image_bg_color, :input_html => {:class => 'color'} %>
+        <%= f.input :body_background_image %>
+
+        <%= render 'shared/image_properties' %>
+
+        <hr>
+
+      </div>
+      <!-- /customize-background -->
+
+      <h3><a data-toggle="collapse" data-target="#customize-mainbox"><i class="icon-th-large"></i> Main Box</a></h3>
+
+      <p class="hb">Customize the main user box on your profile.</p>
+
+      <div id="customize-mainbox" class="collapse out">
+
+        <h6 class="hb">Text</h6>
+        <%= f.input :main_box_h1, :input_html => {:class => 'color'} %>
+        <%= f.input :main_box_h3, :input_html => {:class => 'color'} %>
+        <%= f.input :main_box_p, :input_html => {:class => 'color'} %>
+
+        <h6 class="hb">Background</h6>
+        <%= f.input :main_box_bg_color, :input_html => {:class => 'color'} %>
+        <%= f.input :main_box_background_image %>
+
+        <%= render 'shared/image_properties' %>
+
+        <hr>
+
+      </div>
+      <!-- /customize-mainbox -->
+
+      <h3><a data-toggle="collapse" data-target="#customize-player"><i class="icon-music"></i> Music Player</a></h3>
+
+      <p class="hb">Customize the music player.</p>
+
+      <div id="customize-player" class="collapse out">
+
+        <h6 class="hb">Background</h6>
+        <%= f.input :player_bg_color, :input_html => {:class => 'color'} %>
+
+        <hr>
+
+      </div>
+      <!-- /customize-player -->
+
+      <h3><a data-toggle="collapse" data-target="#customize-news"><i class="icon-list"></i> News</a></h3>
+
+      <p class="hb">Customize the news box.</p>
+
+      <div id="customize-news" class="collapse out">
+
+        <h6 class="hb">Text</h6>
+        <%= f.input :news_h3, :input_html => {:class => 'color'} %>
+        <%= f.input :news_p, :input_html => {:class => 'color'} %>
+
+        <h6 class="hb">Links</h6>
+        <%= f.input :news_link_color, :input_html => {:class => 'color'} %>
+        <%= f.input :news_link_color_hover, :input_html => {:class => 'color'} %>
+
+        <h6 class="hb">Background</h6>
+        <%= f.input :news_background_color, :input_html => {:class => 'color'} %>
+        <%= f.input :news_background_image %>
+
+        <%= render 'shared/image_properties' %>
+
+        <hr>
+
+      </div>
+      <!-- /customize-news -->
+
+      <h3><a data-toggle="collapse" data-target="#customize-about"><i class="icon-info-sign"></i> About</a></h3>
+
+      <p class="hb">Customize the about box.</p>
+
+      <div id="customize-about" class="collapse out">
+
+        <h6 class="hb">Text</h6>
+        <%= f.input :about_h3, :input_html => {:class => 'color'} %>
+
+        <h6 class="hb">Links</h6>
+        <%= f.input :about_link_color, :input_html => {:class => 'color'} %>
+        <%= f.input :about_link_color_hover, :input_html => {:class => 'color'} %>
+
+        <h6 class="hb">Background</h6>
+        <%= f.input :about_bg_color, :input_html => {:class => 'color'} %>
+        <%= f.input :about_background_image %>
+
+        <%= render 'shared/image_properties' %>
+
+        <hr>
+
+      </div>
+      <!-- /customize-about -->
+
+      <h3><a data-toggle="collapse" data-target="#customize-comments"><i class="icon-comments"></i> Comments</a></h3>
+
+      <p class="hb">Customize your comments.</p>
+
+      <div id="customize-comments" class="collapse out">
+
+        <h6 class="hb">Test</h6>
+        <%= f.input :comments_h3_color, :input_html => {:class => 'color'} %>
+        <%= f.input :comments_color, :input_html => {:class => 'color'} %>
+
+        <h6 class="hb">Links</h6>
+        <%= f.input :comments_link_color, :input_html => {:class => 'color'} %>
+        <%= f.input :comments_link_color_hover, :input_html => {:class => 'color'} %>
+        <%= f.input :comments_user_link_color, :input_html => {:class => 'color'} %>
+        <%= f.input :comments_user_link_color_hover, :input_html => {:class => 'color'} %>
+
+        <h6 class="hb">Background</h6>
+        <%= f.input :comments_bg_color, :input_html => {:class => 'color'} %>
+        <%= f.input :comments_background_image %>
+
+        <%= render 'shared/image_properties' %>
+
+        <hr>
+
+      </div>
+      <!-- /customize-comments -->
+
+      <h3><a data-toggle="collapse" data-target="#customize-albums"><i class="icon-th"></i> Albums</a></h3>
+
+      <p class="hb">Customize your album thumbnails.</p>
+
+      <div id="customize-albums" class="collapse out">
+
+        <h6 class="hb">Text</h6>
+        <%= f.input :albums_header_color, :input_html => {:class => 'color'} %>
+        <%= f.input :albums_h3_color, :input_html => {:class => 'color'} %>
+        <%= f.input :albums_date_color, :input_html => {:class => 'color'} %>
+
+        <h6 class="hb">Links</h6>
+        <%= f.input :albums_link_color, :input_html => {:class => 'color'} %>
+        <%= f.input :albums_link_color_hover, :input_html => {:class => 'color'} %>
+
+        <h6 class="hb">Background</h6>
+        <%= f.input :thumbnail_background_color, :input_html => {:class => 'color'} %>
+        <%= f.input :thumbnail_border_color, :input_html => {:class => 'color'} %>
+        <%= f.input :thumbnail_border_color_hover, :input_html => {:class => 'color'} %>
+
+        <hr>
+
+      </div>
+      <!-- /customize-albums -->
+
+      <h3><a data-toggle="collapse" data-target="#customize-events"><i class="icon-calendar"></i> Events</a></h3>
+
+      <p class="hb">Customize your events lists.</p>
+
+      <div id="customize-events" class="collapse out">
+
+        <h6 class="hb">Text</h6>
+        <%= f.input :events_header_color, :input_html => {:class => 'color'} %>
+        <%= f.input :events_h3_color, :input_html => {:class => 'color'} %>
+        <%= f.input :events_text_color, :input_html => {:class => 'color'} %>
+
+        <h6 class="hb">Links</h6>
+        <%= f.input :events_link_color, :input_html => {:class => 'color'} %>
+        <%= f.input :events_link_color_hover, :input_html => {:class => 'color'} %>
+
+        <h6 class="hb">Background</h6>
+        <%= f.input :events_header_bg_color, :input_html => {:class => 'color'} %>
+        <%= f.input :event_table_background_color, :input_html => {:class => 'color'} %>
+        <%= f.input :events_bg_color_hover, :input_html => {:class => 'color'} %>
+
+        <hr>
+
+      </div>
+      <!-- /customize-events -->
+
+      <h3><a data-toggle="collapse" data-target="#customize-nav"><i class="icon-road"></i> Navigation</a></h3>
+
+      <p class="hb">Customize your navigation links.</p>
+
+      <div id="customize-nav" class="collapse out">
+
+        <h6 class="hb">Links</h6>
+        <%= f.input :nav_link_color, :input_html => {:class => 'color'} %>
+        <%= f.input :nav_hover_background_color, :input_html => {:class => 'color'} %>
+        <%= f.input :nav_active_background_color, :input_html => {:class => 'color'} %>
+        <%= f.input :nav_link_color_hover, :input_html => {:class => 'color'} %>
+        <%= f.input :nav_link_color_current, :input_html => {:class => 'color'} %>
+
+        <hr>
+
+      </div>
+      <!-- /customize-nav -->
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+    =
 <% end %>

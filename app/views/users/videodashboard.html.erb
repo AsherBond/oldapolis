@@ -1,0 +1,34 @@
+<%= provide(:title, 'Video Dashboard') %>
+<div class="row">
+  <div class="span3">
+    <div class="well" style="padding:8px 0;">
+      <ul class="nav nav-list">
+        <li class="nav-header">
+          Videos
+        </li>
+        <li><%= link_to "Create New Album", new_user_video_path(@user) %></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="span9">
+    <h2 class="hb">My Videos</h2>
+    <ul class="thumbnails">
+      <% @videos.each do |video| %>
+          <li class="span3">
+            <div class="thumbnail">
+              <%= image_tag video.video.url(:thumb) %>
+              <h5><%= link_to video.title, user_video_path(current_user, video) %></h5>
+
+              <div class="btn-group">
+
+                <%= link_to "<i class='icon-edit'></i> Edit".html_safe, edit_user_video_path(current_user, video), :class => "btn btn-mini btn-danger" %>
+              </div>
+            </div>
+          </li>
+      <% end %>
+
+    </ul>
+
+  </div>
+</div>

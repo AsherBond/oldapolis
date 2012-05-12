@@ -9,6 +9,11 @@ class UsersController < ApplicationController
     @albums = @user.albums
   end
 
+  def videodashboard
+    @user = current_user
+    @videos = @user.videos
+  end
+
   def gallerydashboard
     @user = current_user
     @photos = @user.photos

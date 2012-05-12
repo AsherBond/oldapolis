@@ -1,24 +1,35 @@
 <%= provide(:title, 'New Song') %>
 <div class="row">
-	<div class="span6 offset3">
-		<div class="well">
-			<h2 class="hb">New Song for album <%= @album.title %></h2>
+  <div class="span6 offset3">
+    <ul class="breadcrumb">
+      <li>
+        <%= link_to "Album Dashboard", album_dashboard_url %>
+        <span class="divider">/</span>
+      </li>
+      <li>
+        <%= link_to "#{@album.title}", user_album_songs_path(@album.user_id, @album) %>
+        <span class="divider">/</span>
+      </li>
+      <li class="active">New Song</li>
+    </ul>
 
-			<%= simple_form_for [@album, @song], :html => {:class => 'form-vertical' } do |f| %>
-			  <%= devise_error_messages! %>
+    <div class="well">
 
-			  <%= f.input :title, :hint => "The title of the song." %>
-			  <%= f.input :song, :hint => "MP3's only for now :)" %>
-			  <%= f.input :artwork, :hint => "5MB limit | JPEG/PNG only." %>
-			  <%= f.input :lyrics, :input_html => { :class => "span4", :rows => 4 } %>
+      <%= simple_form_for [current_user, @album, @song], :html => {:class => 'form-vertical'} do |f| %>
+          <%= devise_error_messages! %>
+
+          <%= f.input :title, :hint => "The title of the song." %>
+          <%= f.input :song, :hint => "MP3's only for now :)" %>
+          <%= f.input :artwork, :hint => "5MB limit | JPEG/PNG only." %>
+          <%= f.input :lyrics, :input_html => {:class => "span4", :rows => 4} %>
 
 
-			  <div class="form-actions">
-			  	<%= f.submit "Submit", :class => "btn btn-primary" %>
-			  	<%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
-			  </div>
-			<% end %>
+          <div class="form-actions">
+            <%= f.submit "Submit", :class => "btn btn-primary" %>
+            <%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
+          </div>
+      <% end %>
 
-		</div>
-	</div>
+    </div>
+  </div>
 </div>

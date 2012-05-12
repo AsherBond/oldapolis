@@ -1,28 +1,28 @@
 <%= provide(:title, 'Gallery Dashboard') %>
 <div class="row">
-	<div class="span3">
-		<div class="well" style="padding:8px 0;">
-			<ul class="nav nav-list">
-			  <li class="nav-header">
-			    Gallery
-			  </li>
-			  <li><%= link_to "Upload Photo", new_user_photo_path(@user) %></li>
-			</ul>
-		</div>
-		<div class="well">
-			<p>Here you can edit, delete and add photos to your profile.</p>
-		</div>
-	</div>
-	<div class="span9">
-		<h2 class="hb">My Photos</h2>
-		<ul class="thumbnails">
-	        <% @photos.each do |photo| %>
-                <li class="span2">
-                    <%= link_to image_tag(photo.image.url(:medium)), edit_photo_path(photo), :class => "thumbnail" %>
-                </li>
-	        <% end %>
+  <div class="span3">
+    <div class="well" style="padding:8px 0;">
+      <ul class="nav nav-list">
+        <li class="nav-header">
+          Gallery
+        </li>
+        <li><%= link_to "Upload Photo", new_user_photo_path(@user) %></li>
+      </ul>
+    </div>
+    <div class="well">
+      <p>Here you can edit, delete and add photos to your profile.</p>
+    </div>
+  </div>
+  <div class="span9">
+    <h2 class="hb">My Photos</h2>
+    <ul class="thumbnails">
+      <% @photos.each do |photo| %>
+          <li class="span2">
+            <%= link_to image_tag(photo.image.url(:medium)), edit_user_photo_path(@user, photo), :class => "thumbnail" %>
+          </li>
+      <% end %>
 
-    	</ul>
+    </ul>
 
-	</div>
+  </div>
 </div>

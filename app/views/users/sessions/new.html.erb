@@ -1,32 +1,18 @@
 <%= provide(:title, 'Login') %>
 <div class="row">
-	<div class="span12">
-		<div class="well">
-			<h2 class="hb">Sign in</h2>
+  <div class="span12">
+    <div class="well">
+      <h2 class="hb">Sign in</h2>
 
-			<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal' }) do |f| %>
-			  <%= f.input :email, :hint => "The email you signed up with." %>
-			  <%= f.input :password, :hint => "If you forgot you password please click the link below." %>
+      <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
+          <%= f.input :email, :hint => "The email you signed up with.", :required => false, :autofocus => true %>
+          <%= f.input :password, :hint => "If you forgot you password please click the link below.", :required => false %>
+          <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
 
-
-
-			  <% if devise_mapping.rememberable? -%>
-				<div class="control-group check_boxes optional">
-				  	<label class="check_boxes optional control-label"> Remember me</label>
-				  	<div class="controls">
-				  		<div class="btn-group" data-toggle="buttons-radio">
-						    <label id="user_remember_me_true" name="user[remember_me][]" class="btn"><i class="icon-ok"></i> Yes</label>
-						    <label id="user_remember_me_false" name="user[remember_me][]" class="btn"><i class="icon-remove"></i> Not this time</label>
-				    	</div>
-				    	<input name="user[remember_me][]" type="hidden" value="" />
-					</div>
-				</div>
-			  <% end -%>
-
-			  <div class="form-actions"><%= f.submit "Sign in", :class => "btn btn-primary" %></div>
-			<% end %>
-			<h6 class="hb">Helpful Links</h6>
-			<%= render :partial => "users/links" %>
-		</div>
-	</div>
+          <div class="form-actions"><%= f.submit "Sign in", :class => "btn btn-primary" %></div>
+      <% end %>
+      <h6 class="hb">Helpful Links</h6>
+      <%= render :partial => "users/links" %>
+    </div>
+  </div>
 </div>

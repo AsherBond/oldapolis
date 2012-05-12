@@ -1,12 +1,14 @@
 Mozapolis::Application.routes.draw do
 
+
   devise_for :users
   
   resources :users do
     resources :microposts
-    resources :events, :shallow => true
-    resources :photos, :shallow => true
-    resources :albums, :shallow => true do
+    resources :events
+    resources :photos
+    resources :videos
+    resources :albums do
       resources :songs
     end
   end
@@ -23,6 +25,7 @@ Mozapolis::Application.routes.draw do
   match '/gallery-dashboard'  => 'users#gallerydashboard', as: 'gallery_dashboard'
   match '/album-dashboard'    => 'users#albumdashboard',   as: 'album_dashboard'
   match '/events-dashboard'    => 'users#eventsdashboard',   as: 'events_dashboard'
+  match '/video-dashboard'    => 'users#videodashboard',   as: 'video_dashboard'
 
   match '/settings' => 'settings#edit'
 

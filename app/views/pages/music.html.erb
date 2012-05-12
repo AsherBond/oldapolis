@@ -1,36 +1,36 @@
 <div class="row">
-	<div class="span12">
+  <div class="span12">
 
-		<%= render 'shared/search' %>
-	</div>
+    <%= render 'shared/search' %>
+  </div>
 </div>
 <div class="row">
-	<div class="span8">
-		<h2 class="hb"><i class="icon-star"></i> Top Artists</h3>
-		<ul class="thumbnails">
+  <div class="span8">
+    <h2 class="hb"><i class="icon-star"></i> Top Artists</h3>
+      <ul class="thumbnails">
 
-		  <% @artists.each do |artist| %>
-		  <li class="span4">
-		    <div class="thumbnail">
-		      <%= image_tag artist.profile_image.url(:medium) %>
-		      <h5><%= link_to artist.artist_name, artist %></h5>
+        <% @artists.each do |artist| %>
+            <li class="span4">
+              <div class="thumbnail">
+                <%= image_tag artist.profile_image.url(:medium) %>
+                <h5><%= link_to artist.artist_name, artist %></h5>
 
-		    </div>
-		  </li>
-		  <% end %>
+              </div>
+            </li>
+        <% end %>
 
-		</ul>
-	</div>
-	<div class="span4">
-		<h2 class="hb"><i class="icon-star"></i> Top Albums</h3>
-              <ul class="thumbnails">
-              	<% @albums.each do |album| %>
-                <li class="span2">
-                  <%= link_to image_tag(album.artwork.url(:medium)), album, :class => "thumbnail" %>
-                </li>
-                <% end %>
+      </ul>
+  </div>
+  <div class="span4">
+    <h2 class="hb"><i class="icon-star"></i> Top Albums</h3>
+      <ul class="thumbnails">
+        <% @albums.each do |album| %>
+            <li class="span2">
+              <%= link_to image_tag(album.artwork.url(:medium)), user_album_path(album, album), :class => "thumbnail" %>
+            </li>
+        <% end %>
 
 
-              </ul>
-	</div>
+      </ul>
+  </div>
 </div>

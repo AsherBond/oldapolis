@@ -1,24 +1,34 @@
 <%= provide(:title, 'New Album') %>
 <div class="row">
-	<div class="span6 offset3">
-		<div class="well">
-			<h2 class="hb">New Album</h2>
+  <div class="span6 offset3">
+    <ul class="breadcrumb">
+      <li>
+        <%= link_to "Album Dashboard", album_dashboard_url %>
+        <span class="divider">/</span>
+      </li>
 
-			<%= simple_form_for [@user, @album], :html => {:class => 'form-vertical' } do |f| %>
-			  <%= devise_error_messages! %>
+      <li class="active">New Album</li>
+    </ul>
+    <div class="well">
 
-			  <%= f.input :title, :hint => "The title of the album." %>
-			  <%= f.input :artwork, :hint => "5MB limit | JPEG/PNG only." %>
-			  <%= f.input :label, :hint => "If none, please select unsigned." %>
-			  <%= f.input :year, :hint => "The year the song was produced." %>
+      <%= simple_form_for [@user, @album], :html => {:class => 'form-vertical'} do |f| %>
+          <%= devise_error_messages! %>
 
+          <%= f.input :title, :hint => "The title of the album." %>
+          <%= f.input :artwork, :hint => "5MB limit | JPEG/PNG only." %>
+          <%= f.input :label, :hint => "If none, please select unsigned." %>
+          <%= f.input :year, :hint => "The year the song was produced." %>
 
-			  <div class="form-actions">
-			  	<%= f.submit "Submit", :class => "btn btn-primary" %>
-			  	<%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
-			  </div>
-			<% end %>
+          <div class="alert alert-info">
+            You will be able to add songs in the next step.
+          </div>
 
-		</div>
-	</div>
+          <div class="form-actions">
+            <%= f.submit "Submit", :class => "btn btn-primary" %>
+            <%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
+          </div>
+      <% end %>
+
+    </div>
+  </div>
 </div>

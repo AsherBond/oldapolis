@@ -130,6 +130,8 @@ GEM
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     orm_adapter (0.0.7)
+    paperclip-ffmpeg (0.9.0)
+      paperclip (>= 2.5.2)
     pg (0.13.2)
     pg_search (0.4.1)
       activerecord (>= 3)
@@ -208,6 +210,7 @@ DEPENDENCIES
   gon
   jquery-rails
   paperclip!
+  paperclip-ffmpeg
   pg
   pg_search
   rails (= 3.2.3)

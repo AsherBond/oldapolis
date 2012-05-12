@@ -1,29 +1,39 @@
 <%= provide(:title, 'Edit Album') %>
 <div class="row">
-	<div class="span6 offset3">
-		<div class="well">
-			<h2 class="hb">Edit Album</h2>
+  <div class="span6 offset3">
+    <ul class="breadcrumb">
+      <li>
+        <%= link_to "Album Dashboard", album_dashboard_url %>
+        <span class="divider">/</span>
+      </li>
+      <li>
+        <%= link_to "#{@album.title}", user_album_songs_path(@album.user_id, @album) %>
+        <span class="divider">/</span>
+      </li>
+      <li class="active">Editing <%= @album.title %></li>
+    </ul>
+    <div class="well">
 
-			<%= simple_form_for [@user, @album], :html => {:class => 'form-vertical' } do |f| %>
-			  <%= devise_error_messages! %>
+      <%= simple_form_for [@user, @album], :html => {:class => 'form-vertical'} do |f| %>
+          <%= devise_error_messages! %>
 
-			  <%= f.input :title, :hint => "The title of the album." %>
-			  <%= f.input :artwork, :hint => "5MB limit | JPEG/PNG only." %>
-	            <% if @album.artwork.file? %>
-	              <h6>Current Image</h6>
+          <%= f.input :title, :hint => "The title of the album." %>
+          <%= f.input :artwork, :hint => "5MB limit | JPEG/PNG only." %>
+          <% if @album.artwork.file? %>
+              <h6>Current Image</h6>
 
-	              <p><%= image_tag @album.artwork.url(:small) %></p>
-	            <% end %>
-			  <%= f.input :label, :hint => "If none, please select unsigned." %>
-			  <%= f.input :year, :hint => "The year the album was produced." %>
+              <p><%= image_tag @album.artwork.url(:small) %></p>
+          <% end %>
+          <%= f.input :label, :hint => "If none, please select unsigned." %>
+          <%= f.input :year, :hint => "The year the album was produced." %>
 
 
-			  <div class="form-actions">
-			  	<%= f.submit "Submit", :class => "btn btn-primary" %>
-			  	<%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
-			  </div>			
-			<% end %>
+          <div class="form-actions">
+            <%= f.submit "Submit", :class => "btn btn-primary" %>
+            <%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
+          </div>
+      <% end %>
 
-		</div>
-	</div>
+    </div>
+  </div>
 </div>

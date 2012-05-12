@@ -1,28 +1,36 @@
 <%= provide(:title, 'New Album') %>
 <div class="row">
-	<div class="span6 offset3">
-		<div class="well">
-			<h2 class="hb">New Event</h2>
-
-			<%= simple_form_for [@user, @event], :html => {:class => 'form-vertical' } do |f| %>
-			  <%= devise_error_messages! %>
-
-			  <%= f.input :title, :hint => "The title of the event." %>
-			  <%= f.input :location, :hint => "Tell us where to camp out..." %>
-			  <%= f.input :info, :hint => "A breif discription.", :input_html => { :class => "span4", :rows => 4 } %>
-			  <%= f.input :start, :hint => "Start time.", :input_html => { :class => "span1" } %>
-			  <%= f.input :end, :hint => "End time", :input_html => { :class => "span1" } %>
-			  <%= f.input :ticket_link, :hint => "URLs will be checked for cleaness." %>
-			  <%= f.input :disclaimer, :hint => "If any...", :input_html => { :class => "span4", :rows => 4 }  %>
-			  <%= f.input :flyer %>
+  <div class="span6 offset3">
+    <ul class="breadcrumb">
+      <li>
+        <%= link_to "Events Dashboard", events_dashboard_url %>
+        <span class="divider">/</span>
+      </li>
 
 
-			  <div class="form-actions">
-			  	<%= f.submit "Submit", :class => "btn btn-primary" %>
-			  	<%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
-			  </div>
-			<% end %>
+      <li class="active">New Event</li>
+    </ul>
+    <div class="well">
 
-		</div>
-	</div>
+      <%= simple_form_for [@user, @event], :html => {:class => 'form-vertical'} do |f| %>
+          <%= devise_error_messages! %>
+
+          <%= f.input :title, :hint => "The title of the event." %>
+          <%= f.input :location, :hint => "Tell us where to camp out..." %>
+          <%= f.input :info, :hint => "A breif discription.", :input_html => {:class => "span4", :rows => 4} %>
+          <%= f.input :start, :hint => "Start time.", :input_html => {:class => "span1"} %>
+          <%= f.input :end, :hint => "End time", :input_html => {:class => "span1"} %>
+          <%= f.input :ticket_link, :hint => "URLs will be checked for cleaness." %>
+          <%= f.input :disclaimer, :hint => "If any...", :input_html => {:class => "span4", :rows => 4} %>
+          <%= f.input :flyer %>
+
+
+          <div class="form-actions">
+            <%= f.submit "Submit", :class => "btn btn-primary" %>
+            <%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
+          </div>
+      <% end %>
+
+    </div>
+  </div>
 </div>

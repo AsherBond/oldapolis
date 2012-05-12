@@ -1,35 +1,38 @@
 <% provide(:title, @user.artist_name) %>
 <div class="row">
 
-  <div class="span8">
-    <div id="main-box" class="well">
-        <h1><%= @user.artist_name %></h1>
-        <h3>59 fans / 2,304 total plays / 217 plays today</h3>
-        <p><%= @user.city %>, <%= @user.state %></p>
-        <p>
-            <a href="#" class="btn btn-primary"><i class="icon-user icon-white"></i> Follow</a>
-            <a href="#" class="btn btn-warning"><i class="icon-comment icon-white"></i> Message</a>
-        </p>
+<div class="span8">
+  <div id="main-box" class="well">
+    <h1><%= @user.artist_name %></h1>
+
+    <h3>59 fans / 2,304 total plays / 217 plays today</h3>
+
+    <p><%= @user.city %>, <%= @user.state %></p>
+
+    <p>
+      <a href="#" class="btn"><i class="icon-user icon-white"></i> Follow</a>
+      <a href="#" class="btn"><i class="icon-comment icon-white"></i> Message</a>
+    </p>
+  </div>
+
+  <div class="row">
+    <div class="span8">
+      <ul id="nav-box" class="nav nav-pills">
+        <li class="active"><a href="#1" data-toggle="tab">Profile</a></li>
+        <li><a href="#2" data-toggle="tab">News</a></li>
+        <li><a href="#3" data-toggle="tab">Videos</a></li>
+        <li><a href="#5" data-toggle="tab">Events</a></li>
+        <li><a href="#6" data-toggle="tab">Photos</a></li>
+        <li><a href="#7" data-toggle="tab">Posts</a></li>
+        <li><a href="#8" data-toggle="tab">Fans</a></li>
+        <li><a href="#9" data-toggle="tab">Friends</a></li>
+      </ul>
     </div>
+  </div>
 
-    <div class="row">
-      <div class="span8">
-        <ul id="nav-box" class="nav nav-pills">
-          <li class="active"><a href="#1" data-toggle="tab">Profile</a></li>
-          <li><a href="#2" data-toggle="tab">News</a></li>
-          <li><a href="#3" data-toggle="tab">Videos</a></li>
-          <li><a href="#5" data-toggle="tab">Events</a></li>
-          <li><a href="#6" data-toggle="tab">Photos</a></li>
-          <li><a href="#7" data-toggle="tab">Posts</a></li>
-          <li><a href="#8" data-toggle="tab">Fans</a></li>
-          <li><a href="#9" data-toggle="tab">Friends</a></li>
-        </ul>
-      </div>
-    </div>
+  <div class="tab-content">
 
-    <div class="tab-content">
-
-      <div class="tab-pane active" id="1">
+    <div class="tab-pane active" id="1">
       <div class="row">
         <div class="span8">
           <%= render 'shared/player' %>
@@ -45,188 +48,197 @@
           </div>
         </div>
       </div>
-      </div>
+    </div>
 
 
-      <div class="tab-pane" id="2">
+    <div class="tab-pane" id="2">
       <div class="row">
-          <div id="news-box" class="span8">
-            <div class="well">
-              <h3 class="h-border">News</h3>
-              <div style="width:100%;">
-                <h4><a href="#">Electric Touch Exclusively Reveal New Album Art</a></h4>
-                <p><a href="#"><img src="http://placehold.it/75x50" class="float-left"/></a>Electric Touch want you to be the first to see the official artwork for their upcoming new album, 'Never Look Back'. While the official tracklisting has yet to confirmed, the album is currently slated for a March 20 release date…</p>
-              </div>
-              <div style="width:100%;">
-                <h4><a href="#">Electric Touch Exclusively Reveal New Album Art</a></h4>
-                <p><a href="#"><img src="http://placehold.it/75x50" class="float-left"/></a>Electric Touch want you to be the first to see the official artwork for their upcoming new album, 'Never Look Back'. While the official tracklisting has yet to confirmed, the album is currently slated for a March 20 release date…</p>
-              </div>
+        <div id="news-box" class="span8">
+          <div class="well">
+            <h3 class="h-border">News</h3>
+
+            <div style="width:100%;">
+              <h4><a href="#">Electric Touch Exclusively Reveal New Album Art</a></h4>
+
+              <p><a href="#"><img src="http://placehold.it/75x50" class="float-left"/></a>Electric Touch want you to be
+                the first to see the official artwork for their upcoming new album, 'Never Look Back'. While the
+                official tracklisting has yet to confirmed, the album is currently slated for a March 20 release date…
+              </p>
+            </div>
+            <div style="width:100%;">
+              <h4><a href="#">Electric Touch Exclusively Reveal New Album Art</a></h4>
+
+              <p><a href="#"><img src="http://placehold.it/75x50" class="float-left"/></a>Electric Touch want you to be
+                the first to see the official artwork for their upcoming new album, 'Never Look Back'. While the
+                official tracklisting has yet to confirmed, the album is currently slated for a March 20 release date…
+              </p>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
 
-      <div class="tab-pane" id="3">
+    <div class="tab-pane" id="3">
       <div class="row">
-          <div class="span8">
-            <h3 class="hb">Videos</h3>
-              <ul class="thumbnails">
-                <li class="span4">
-                  <div class="thumbnail">
-                    <img src="http://placehold.it/600x400" alt="">
-                    <h5><a href="#">Under Soil and Dirt</a></h5>
-                    <p>2011</p>
-                  </div>
-                </li>
-                <li class="span4">
-                  <div class="thumbnail">
-                    <img src="http://placehold.it/600x400" alt="">
-                    <h5><a href="#">Split w/ Maker</a></h5>
-                    <p>2009</p>
-                  </div>
-                </li>
-                <li class="span4">
-                  <div class="thumbnail">
-                    <img src="http://placehold.it/600x400" alt="">
-                    <h5><a href="#">Under Soil and Dirt</a></h5>
-                    <p>2011</p>
-                  </div>
-                </li>
-                <li class="span4">
-                  <div class="thumbnail">
-                    <img src="http://placehold.it/600x400" alt="">
-                    <h5><a href="#">Split w/ Maker</a></h5>
-                    <p>2009</p>
-                  </div>
-                </li>
+        <div class="span8">
+          <ul class="thumbnails">
+            <li class="span4">
+              <div class="thumbnail">
+                <img src="http://placehold.it/600x400" alt="">
+                <h5><a href="#">Under Soil and Dirt</a></h5>
 
-              </ul>
-          </div>
+                <p>2011</p>
+              </div>
+            </li>
+            <li class="span4">
+              <div class="thumbnail">
+                <img src="http://placehold.it/600x400" alt="">
+                <h5><a href="#">Split w/ Maker</a></h5>
+
+                <p>2009</p>
+              </div>
+            </li>
+            <li class="span4">
+              <div class="thumbnail">
+                <img src="http://placehold.it/600x400" alt="">
+                <h5><a href="#">Under Soil and Dirt</a></h5>
+
+                <p>2011</p>
+              </div>
+            </li>
+            <li class="span4">
+              <div class="thumbnail">
+                <img src="http://placehold.it/600x400" alt="">
+                <h5><a href="#">Split w/ Maker</a></h5>
+
+                <p>2009</p>
+              </div>
+            </li>
+
+          </ul>
         </div>
       </div>
+    </div>
 
 
-
-      <div class="tab-pane" id="5">
+    <div class="tab-pane" id="5">
       <div class="row">
-          <div class="span8">
-            <h3 class="hb">Events</h3>
-            <table class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th width="20%">Date</th>
-                  <th width="80%">Location / Info</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @events.each do |event| %>
+        <div class="span8">
+          <table id="event-box" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th width="20%">Date</th>
+              <th width="80%">Location / Info</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @events.each do |event| %>
                 <tr>
                   <td><%= event.start.to_formatted_s(:short) %></th>
-                  <td><%= link_to event.title, event %></th>
+                  <td><%= link_to event.title, user_event_path(@user, event) %></th>
                 </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
+            <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
+    </div>
 
 
-      <div class="tab-pane" id="6">
+    <div class="tab-pane" id="6">
       <div class="row">
-          <div class="span8">
-            <h3 class="hb">Photos</h3>
-              <ul class="thumbnails">
-                <% @photos.each do |photo| %>
+        <div class="span8">
+          <ul class="thumbnails">
+            <% @photos.each do |photo| %>
                 <li class="span2">
-                  <%= link_to image_tag(photo.image.url(:medium)), photo_path(photo), :class => "thumbnail" %>
+                  <%= link_to image_tag(photo.image.url(:medium)), user_photo_path(@user, photo), :class => "thumbnail" %>
                 </li>
-                <% end %>
+            <% end %>
 
-              </ul>
-          </div>
+          </ul>
         </div>
       </div>
+    </div>
 
 
-      <div class="tab-pane" id="7">
+    <div class="tab-pane" id="7">
       <div class="row">
         <div id="micropost-box" class="span8">
 
         </div>
       </div>
-      </div>
-      
     </div>
-      
-    <div class="row">
-      <div id="comment-box" class="span8">
-        <div class="well">
-          <h3 class="h-border">Comments</h3>
-          <p>
-          <blockquote>
-              <p>really cool profile.</p>
-              <small>says <a href="#">Cody Lopez</a></small>
-          </blockquote>
-          </p>
-          <p>
-          <blockquote>
-              <p>Awesome!</p>
-              <small>says <a href="#">Bob Lot</a></small>
-          </blockquote>
-          </p>
-
-          <h3 class="h-border">Leave your own comment</h3>
-
-        </div>
-      </div>
-    </div>
-
 
   </div>
-  
-  <div class="span4">
-      <ul class="thumbnails">
-        <li class="span4">
 
-          <%= link_to image_tag(@user.profile_image.url(:medium)), user_photos_path(@user), :class => "thumbnail", :id => "profile-image" %>
-        </li>
-      </ul>
+  <div class="row">
+    <div id="comment-box" class="span8">
+      <div class="well">
+        <h3 class="h-border">Comments</h3>
 
-      <h3 class="h-border">Albums</h3>
-      <ul id="album-box" class="thumbnails">
-        <% @albums.each do |album| %>
+        <p>
+        <blockquote>
+          <p>really cool profile.</p>
+          <small>says <a href="#">Cody Lopez</a></small>
+        </blockquote>
+        </p>
+        <p>
+        <blockquote>
+          <p>Awesome!</p>
+          <small>says <a href="#">Bob Lot</a></small>
+        </blockquote>
+        </p>
+
+        <h3 class="h-border">Leave your own comment</h3>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="span4">
+  <ul class="thumbnails">
+    <li class="span4">
+
+      <%= link_to image_tag(@user.profile_image.url(:medium)), user_photos_path(@user), :class => "thumbnail", :id => "profile-image" %>
+    </li>
+  </ul>
+
+  <ul id="album-box" class="thumbnails">
+    <% @albums.each do |album| %>
         <li class="span2">
           <div class="thumbnail profile-album">
             <%= image_tag album.artwork.url(:medium) %>
-            <h5><%= link_to album.title, album %></h5>
+            <h5><%= link_to album.title, user_album_path(@user, album) %></h5>
+
             <p><%= album.year %></p>
           </div>
         </li>
-        <% end %>
+    <% end %>
 
 
-      </ul>
+  </ul>
 
-      <h3 class="h-border">Events</h3>
-      <table id="event-box" class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th width="20%">Date</th>
-            <th width="80%">Location / Info</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @events.each do |event| %>
-          <tr>
-            <td><%= event.start.to_formatted_s(:short) %></th>
-            <td><%= link_to event.title, event %></th>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+  <table id="event-box" class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th width="20%">Date</th>
+      <th width="80%">Location / Info</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @events.each do |event| %>
+        <tr>
+          <td><%= event.start.to_formatted_s(:short) %></th>
+          <td><%= link_to event.title, user_event_path(@user, event) %></th>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
 
-  </div>
+</div>
 
 </div>

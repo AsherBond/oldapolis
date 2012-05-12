@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120508231749) do
+ActiveRecord::Schema.define(:version => 20120512000340) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -246,6 +246,13 @@ ActiveRecord::Schema.define(:version => 20120508231749) do
     t.string   "body_background_image_content_type"
     t.integer  "body_background_image_file_size"
     t.datetime "body_background_image_updated_at"
+    t.string   "thumbnail_background_color"
+    t.string   "thumbnail_border_color"
+    t.string   "thumbnail_border_color_hover"
+    t.string   "event_table_background_color"
+    t.string   "nav_active_background_color"
+    t.string   "nav_hover_background_color"
+    t.string   "albums_header_color"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -258,5 +265,20 @@ ActiveRecord::Schema.define(:version => 20120508231749) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "videos", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "youtube_url"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
+  end
+
+  add_index "videos", ["user_id"], :name => "index_videos_on_user_id"
 
 end
